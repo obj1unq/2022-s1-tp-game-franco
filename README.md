@@ -1,7 +1,7 @@
 # Nombre del juego (<- borrar y completar)
 
 ## Equipo de desarrollo
-
+asdasdasdasdas
 - Alguien
 - Persona
 - etc.
