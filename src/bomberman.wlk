@@ -13,4 +13,4 @@ method poner(objeto){
 		game.addVisual(objeto)	
 	}
 
-}	
+}

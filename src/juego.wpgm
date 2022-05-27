@@ -1,8 +1,20 @@
 import wollok.game.*
-import pepita.*
+import bomberman.*
+import objetos.*
 
-program juego {
-	game.title("Juego Base")
-	game.addVisual(pepita)
+program bomberman {
+	//  CONFIG	
+	game.title("Bomberman")
+	game.height(50)
+	game.width(50)
+	game.ground("fondo2.jpg")
+
+	//  VISUALES
+ 	game.addVisualCharacter(bomberman)
+
+ 	// TECLADO
+ 	keyboard.b().onPressDo( { bomberman.poner(new Bomba()) })
+ 	//  COMIENZA
 	game.start()
-}
+	
+	}
