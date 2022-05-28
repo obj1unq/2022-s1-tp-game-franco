@@ -4,13 +4,19 @@ import objetos.*
 
 program bomberman {
 	//  CONFIG	
+	
 	game.title("Bomberman")
-	game.height(50)
-	game.width(50)
+	game.cellSize(50)
+	game.height(10)
+	game.width(10)
 	game.ground("fondo2.jpg")
+	
 
 	//  VISUALES
+ 	game.addVisual(new Enemigo())
  	game.addVisualCharacter(bomberman)
+ 	
+ 	game.onCollideDo(bomberman, { personaje => personaje.teEncontro(bomberman)  } )
 
  	// TECLADO
  	keyboard.b().onPressDo( { bomberman.poner(new Bomba()) })

@@ -10,7 +10,18 @@ method posicion(){
 }
 
 method poner(objeto){
-		game.addVisual(objeto)	
+		game.addVisual(objeto)
+		game.schedule(3000, {objeto.explotar()})	
+	}
+
+method perder() {
+		self.terminar("Perdí!")
+	}
+
+
+method terminar(mensaje) {
+		game.say(self, mensaje)
+		game.schedule(2000, {game.stop()})
 	}
 
 }
