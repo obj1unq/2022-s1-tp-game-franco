@@ -1,34 +1,59 @@
 import wollok.game.*
 import bomberman.*
 
+
 class Bomba {
 
 	const property position = bomberman.posicion()
-
+	const fuegos = []
+	
 	method explotar() {
 		game.removeVisual(self)
-		explosion.aparecer()
+		self.crearFuegos()
+		self.explosionAparecer()
+		game.schedule(3000,{self.explosionDesaparecer()})
 	}
-
-
-
-/*method desaparecerExplosion(){
- * 	game.removeVisual(game.getObjectsIn(self.position()))	
- *  	game.removeVisual(new Fuego(position=self.position().up(1)))
- * 	game.removeVisual(new Fuego(position=self.position().down(1)))		
- * 	game.removeVisual(new Fuego(position=self.position().left(1)))
- game.removeVisual(new Fuego(position=self.position().right(1)))*/
-
-method teEncontro(alguien) {
+	
+	method crearFuegos(){
+		fuegos.add(new Fuego(position = self.position().up(1)))
+		fuegos.add(new Fuego(position = self.position().down(1)))
+		fuegos.add(new Fuego(position = self.position().left(1)))
+		fuegos.add(new Fuego(position = self.position().right(1)))
+		fuegos.add(new Fuego(position = self.position()))
+	}
+	
+	method explosionAparecer(){
+		fuegos.forEach({fuego => game.addVisual(fuego)})
+	
+	}
+	
+	method explosionDesaparecer(){
+		fuegos.forEach({fuego => game.removeVisual(fuego)})
+	}	
+		
+	method teEncontro(alguien) {
+	
 	}
 
 	method image() {
 		return "bomba.png"
 	}
-
 }
 
-class Enemigo {
+class Fuego {
+	
+	const property position = game.at(5,5)
+	
+	method image(){
+		return "fuego.png"
+	}
+	
+	method teEncontro(alguien) {
+		alguien.perder()
+	}	
+}
+
+class Enemigo{
 
 	const property posicion = game.at(2, 3)
 
@@ -46,35 +71,3 @@ class Enemigo {
 
 }
 
-class Fuego {
-	
-	const property position = game.at(5,5)
-	
-	method image(){
-		return "fuego.png"
-	}
-	
-	method teEncontro(alguien) {
-		alguien.perder()
-	}
-	
-	
-	
-}
-
-
-/*object explosion {
-		
-		method aparecer() {
-			game.addVisual(new Fuego(position=self.position()))	
-			game.addVisual(new Fuego(position=self.position().up(1)))
-			game.addVisual(new Fuego(position=self.position().down(1)))		
-			game.addVisual(new Fuego(position=self.position().left(1)))
-			game.addVisual(new Fuego(position=self.position().right(1)))
-			game.onSchedule(3000, )
-			}
-	    }
-	    * 
-	    * 
-	    *----------->Explosion como metodo de Bomba posiblemente mejor <------------
-*/ 
