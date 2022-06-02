@@ -1,10 +1,11 @@
 import wollok.game.*
 import bomberman.*
 import objetos.*
+import enemigo.*
 
 program bomberman {
 	//  CONFIG	
-	
+	var enemigo1 = new EnemigoLateral()
 	game.title("Bomberman")
 	game.cellSize(50)
 	game.height(10)
@@ -13,7 +14,10 @@ program bomberman {
 	
 
 	//  VISUALES
- 	game.addVisual(new Enemigo())
+ 	game.addVisual(enemigo1)
+ 	game.onTick(1000, "movimiento", {enemigo1.moverse()})
+	
+ 	
  	game.addVisualCharacter(bomberman)
  	
  	game.onCollideDo(bomberman, { personaje => personaje.teEncontro(bomberman)  } )
