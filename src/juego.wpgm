@@ -6,6 +6,7 @@ import enemigo.*
 program bomberman {
 	//  CONFIG	
 	var enemigo1 = new EnemigoLateral()
+	var enemigo2 = new Enemigo()
 	game.title("Bomberman")
 	game.cellSize(50)
 	game.height(10)
@@ -14,10 +15,9 @@ program bomberman {
 	
 
 	//  VISUALES
- 	game.addVisual(enemigo1)
+ 	game.addVisual(enemigo1)	
+ 	game.addVisual(enemigo2)
  	game.onTick(1000, "movimiento", {enemigo1.moverse()})
-	
- 	
  	game.addVisualCharacter(bomberman)
  	
  	game.onCollideDo(bomberman, { personaje => personaje.teEncontro(bomberman)  } )
