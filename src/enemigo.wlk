@@ -4,12 +4,10 @@ import wollok.game.*
 
 
 class Enemigo{
-
-	/*const property posicion = game.at(2, 3)*/
 	var property position = game.at(0, 0)
 
-	method image() 
-
+	method image()
+	
 	method position() {
 		return position
 	}
@@ -17,8 +15,14 @@ class Enemigo{
 	method teEncontro(alguien) {
 		alguien.perder()
 	}
+	method encontreFuego(){
+		game.removeVisual(self)
+	}
 	
 	method moverse()
+	method validarMoverse(){
+		
+	}
 	
 	
 }

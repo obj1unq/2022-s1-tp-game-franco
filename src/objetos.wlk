@@ -11,7 +11,7 @@ class Bomba {
 		game.removeVisual(self)
 		self.crearFuegos()
 		self.explosionAparecer()
-		game.schedule(3000,{self.explosionDesaparecer()})
+		game.schedule(1500,{self.explosionDesaparecer()})
 	}
 	
 	method crearFuegos(){
@@ -24,6 +24,7 @@ class Bomba {
 	
 	method explosionAparecer(){
 		fuegos.forEach({fuego => game.addVisual(fuego)})
+		fuegos.forEach({fuego => fuego.encontrarObjetos()})
 	
 	}
 	
@@ -32,7 +33,9 @@ class Bomba {
 	}	
 		
 	method teEncontro(alguien) {
-	
+	}
+	method bomberQuierePasar(){
+		return false
 	}
 
 	method image() {
@@ -50,22 +53,42 @@ class Fuego {
 	
 	method teEncontro(alguien) {
 		alguien.perder()
-	}	
+	}
+	method encontrarPared(bloque){
+		bloque.desaparecer()
+	}
+	method encontrarObjetos(){
+		game.colliders(self).forEach({objeto => objeto.encontreFuego()})
+	}
+
+		
+}
+object puertaGanadora{
+	const property position=game.at(8,4)
+	const property image="puerta-ganadora.png"
+	
+	method teEncontro(alguien){
+		alguien.ganar()
+	}
+	method construir(_position){
+		game.addVisualIn(self,_position)
+	}
+	method encontreFuego(){}
 }
 
-class Enemigo{
+/*class Enemigo{
 
-	/*const property posicion = game.at(2, 3)*/
+	const property posicion = game.at(2, 3)
 	var property position = game.at(2, 3)
 
 	method image() {
 		return "enemigo.png"
 	}
-/*
+
 	method position() {
 		return posicion
 	}
- */
+ 
 	method teEncontro(alguien) {
 		alguien.perder()
 	}
@@ -79,5 +102,7 @@ class Enemigo{
 				newY = newY.max(0).min(game.height() - 1)
 				position = game.at(newX, newY)
 	}
-}
+}*/
+
+
 

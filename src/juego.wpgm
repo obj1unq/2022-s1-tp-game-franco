@@ -2,32 +2,42 @@ import wollok.game.*
 import bomberman.*
 import objetos.*
 import enemigo.*
-
+import niveles.*
 program bomberman {
 	//  CONFIG	
 	
 	var enemigo3 = new EnemigoVertical()
 	var enemigo1 = new EnemigoLateral()
-	var enemigo2 = new Enemigo()
+	var bloque1 = new BloqueDuro()
+	var bloque2=new BloqueBlando()
+	const ramon = new Nivel1()
+	
 	game.title("Bomberman")
 	game.cellSize(50)
-	game.height(10)
-	game.width(10)
+	game.height(11)
+	game.width(11)
 	game.ground("fondo2.jpg")
 	
 
 	//  VISUALES
+ 	ramon.iniciarNivel()
  	game.addVisual(enemigo3)
  	game.addVisual(enemigo1)	
- 	game.addVisual(enemigo2)
+
  	game.onTick(1000, "movimiento", {enemigo1.moverse()})
  	game.onTick(1000, "movimiento", {enemigo3.moverse()})
- 	game.addVisualCharacter(bomberman)
+ 	game.addVisual(bomberman)
  	
  	game.onCollideDo(bomberman, { personaje => personaje.teEncontro(bomberman)  } )
-
+//	game.onCollideDo(bomberman, { personaje => personaje.teEncontro(bomberman)  } )
+	
  	// TECLADO
+ 	keyboard.n().onPressDo( {ramon.iniciarNivel() }) // prueba de inciar
  	keyboard.b().onPressDo( { bomberman.poner(new Bomba()) })
+ 	keyboard.left().onPressDo( { bomberman.mover(izquierda) } )
+	keyboard.right().onPressDo( { bomberman.mover(derecha) } )
+	keyboard.up().onPressDo( { bomberman.mover(arriba) } )
+	keyboard.down().onPressDo( { bomberman.mover(abajo) } )
  	//  COMIENZA
 	game.start()
 	
