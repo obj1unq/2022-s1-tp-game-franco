@@ -28,7 +28,7 @@ method ganar(){
 /*method teEncontre(){
 	guardadorDeBloquesBlandos.listaDeBloques() falta
 }*/
-
+//ss
 method mover(_direccion) {
 	if(self.puedoPasar(_direccion)){
 		position=_direccion.siguiente(self.position())
