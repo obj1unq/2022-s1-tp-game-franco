@@ -35,7 +35,20 @@ method mover(_direccion) {
 	}else{}
 }
 method puedoPasar(_direccion){
-	return game.getObjectsIn(_direccion.siguiente(self.position())).isEmpty()
+	return
+	game.getObjectsIn(_direccion.siguiente(self.position())).isEmpty() and
+		self.validarEjeX(_direccion) and self.validarEjeY(_direccion)
+}
+/*method validarPosicionVacia(_direccion){
+	if(!game.getObjectsIn(_direccion.siguiente(self.position())).isEmpty() and ){
+		FALTA CODIGO PARA SABER SI HAY PUERTA Y GANAR EN ESE CASO
+	}
+}*/
+method validarEjeX(_direccion){
+	return _direccion.siguiente(self.position()).x() != -1 and _direccion.siguiente(self.position()).x() != 11
+}
+method validarEjeY(_direccion){
+	return _direccion.siguiente(self.position()).y() != -1 and _direccion.siguiente(self.position()).y() != 11
 }
 method terminar(mensaje) {
 		game.say(self, mensaje)
