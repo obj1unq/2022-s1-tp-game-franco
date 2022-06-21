@@ -64,7 +64,7 @@ class Fuego {
 		
 }
 object puertaGanadora{
-	const property position=game.at(8,4)
+	var property position
 	const property image="puerta-ganadora.png"
 	
 	method teEncontro(alguien){
@@ -72,6 +72,7 @@ object puertaGanadora{
 	}
 	method construir(_position){
 		game.addVisualIn(self,_position)
+		position=_position
 	}
 	method encontreFuego(){}
 }

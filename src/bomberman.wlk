@@ -3,7 +3,7 @@ import objetos.*
 import niveles.*
 
 object bomberman {
-	var property position = game.at(0,10)
+	var property position = game.at(3,3)
 	const property image = "bomberman.png"
 
 method posicion(){
@@ -11,12 +11,12 @@ method posicion(){
 }
 
 method poner(objeto){
-		game.addVisual(objeto)
-		game.schedule(1500, {objeto.explotar()})	
+	game.addVisual(objeto)
+	game.schedule(1500, {objeto.explotar()})	
 	}
 
 method perder() {
-		self.terminar("Perdí!")
+	self.terminar("Perdí!")
 	}
 method encontreFuego(){
 	self.perder()
@@ -25,25 +25,26 @@ method ganar(){
 	game.say(self,"GANE GUACHIN")
 	game.schedule(2000, {game.stop()})
 }
-method teEncontre(){
-//	guardadorDeBloquesBlandos.listaDeBloques() falta
-}
+/*method teEncontre(){
+	guardadorDeBloquesBlandos.listaDeBloques() falta
+}*/
 
 method mover(_direccion) {
 	if(self.puedoPasar(_direccion)){
 		position=_direccion.siguiente(self.position())
-	}else{}
+	}
 }
 method puedoPasar(_direccion){
-	return
-	game.getObjectsIn(_direccion.siguiente(self.position())).isEmpty() and
-		self.validarEjeX(_direccion) and self.validarEjeY(_direccion)
+	return (self.siguientePosicionEsVacia(_direccion) or self.celdaEsPuertaGanadora(_direccion)) and
+	self.validarEjeX(_direccion) and self.validarEjeY(_direccion)
+
 }
-/*method validarPosicionVacia(_direccion){
-	if(!game.getObjectsIn(_direccion.siguiente(self.position())).isEmpty() and ){
-		FALTA CODIGO PARA SABER SI HAY PUERTA Y GANAR EN ESE CASO
+method siguientePosicionEsVacia(_direccion){
+	return game.getObjectsIn(_direccion.siguiente(self.position())).isEmpty()
+}
+method celdaEsPuertaGanadora(_direccion){
+	return _direccion.siguiente(self.position()) == puertaGanadora.position()
 	}
-}*/
 method validarEjeX(_direccion){
 	return _direccion.siguiente(self.position()).x() != -1 and _direccion.siguiente(self.position()).x() != 11
 }

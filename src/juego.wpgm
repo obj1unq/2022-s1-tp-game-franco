@@ -8,8 +8,6 @@ program bomberman {
 	
 	var enemigo3 = new EnemigoVertical()
 	var enemigo1 = new EnemigoLateral()
-	var bloque1 = new BloqueDuro()
-	var bloque2=new BloqueBlando()
 	const ramon = new Nivel1()
 	
 	game.title("Bomberman")
@@ -29,7 +27,6 @@ program bomberman {
  	game.addVisual(bomberman)
  	
  	game.onCollideDo(bomberman, { personaje => personaje.teEncontro(bomberman)  } )
-//	game.onCollideDo(bomberman, { personaje => personaje.teEncontro(bomberman)  } )
 	
  	// TECLADO
  	keyboard.n().onPressDo( {ramon.iniciarNivel() }) // prueba de inciar
