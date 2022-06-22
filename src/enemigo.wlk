@@ -23,7 +23,13 @@ class Enemigo{
 	method validarMoverse(){
 		
 	}
-	
+	method siguientePosicionVacia(){
+		return game.getObjectsIn(_direccion.siguiente(self.position())).isEmpty()
+	}
+	method listaDePosicionesPosibles(){
+		return [abajo.siguiente(self.position()),arriba.siguiente(self.position()),derecha.siguiente(self.position()),
+			izquierda.siguiente(self.position())]
+	}
 	
 }
 
