@@ -43,7 +43,7 @@ method siguientePosicionEsVacia(_direccion){
 	return game.getObjectsIn(_direccion.siguiente(self.position())).isEmpty()
 }
 method celdaEsPuertaGanadora(_direccion){
-	return _direccion.siguiente(self.position()) == puertaGanadora.position()
+	return _direccion.siguiente(self.position()) == puertaGanadora.position() and game.getObjectsIn(_direccion.siguiente(self.position())) == [puertaGanadora]
 	}
 method validarEjeX(_direccion){
 	return _direccion.siguiente(self.position()).x() != -1 and _direccion.siguiente(self.position()).x() != 11

@@ -1,19 +1,21 @@
 import wollok.game.*
 import objetos.*
-	
+import bomberman.*
 class Nivel1{
 //	const listaDeBloques = []
 //	const listaDePosiciones=[1,2,3,4,5,6,7,8,9,10]
 	
 	
 	method iniciarNivel(){
+		//Bomberman
+		game.addVisual(bomberman)
 		//Puerta
 		puertaGanadora.construir(game.at(2,3))
 		//Dura
 		constructorPared.construirParedDura(game.at(0,9),abajo,4)
 		constructorPared.construirParedDura(game.at(2,5),arriba,2)
 		constructorPared.construirParedDura(game.at(2,9),derecha,4)
-		constructorPared.construirParedDura(game.at(2,5),arriba,2)
+		constructorPared.construirParedDura(game.at(2,5),arriba,2) 
 		constructorPared.construirParedDura(game.at(0,4),abajo,4)
 		constructorPared.construirParedDura(game.at(9,10),abajo,9)
 		constructorPared.construirParedDura(game.at(2,1),derecha,6)

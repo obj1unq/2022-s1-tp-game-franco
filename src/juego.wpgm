@@ -24,7 +24,6 @@ program bomberman {
 
  	game.onTick(1000, "movimiento", {enemigo1.moverse()})
  	game.onTick(1000, "movimiento", {enemigo3.moverse()})
- 	game.addVisual(bomberman)
  	
  	game.onCollideDo(bomberman, { personaje => personaje.teEncontro(bomberman)  } )
 	

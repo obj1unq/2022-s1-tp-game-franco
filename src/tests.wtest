@@ -1,16 +1,12 @@
 import wollok.game.*
 import objetos.*
+import niveles.*
+import bomberman.*
 
-object bomberman {
-	var property position = game.center()
-	const property image = "bomberman.png"
-
-method posicion(){
-	return position
-}
-
-method poner(objeto){
-		game.addVisual(objeto)	
+describe "test bombermna"{
+	const ramon=new Nivel1()
+	test "bomberman no puede atravesar pared blanda que contiene la puerta ganadora"{
+		ramon.iniciarNivel()
+		assert.notThat(bomberman.puedoPasar(izquierda))
 	}
-
 }	
