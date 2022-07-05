@@ -22,13 +22,9 @@ method encontreFuego(){
 	self.perder()
 }
 method ganar(){
-	game.say(self,"GANE GUACHIN")
+	game.say(self,"GANE")
 	game.schedule(2000, {game.stop()})
 }
-/*method teEncontre(){
-	guardadorDeBloquesBlandos.listaDeBloques() falta
-}*/
-//ss
 method mover(_direccion) {
 	if(self.puedoPasar(_direccion)){
 		position=_direccion.siguiente(self.position())

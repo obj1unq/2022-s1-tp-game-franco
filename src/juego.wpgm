@@ -8,6 +8,7 @@ program bomberman {
 	
 	var enemigo3 = new EnemigoVertical()
 	var enemigo1 = new EnemigoLateral()
+	var enemigoRandom = new EnemigoRandom()
 	const ramon = new Nivel1()
 	
 	game.title("Bomberman")
@@ -20,10 +21,12 @@ program bomberman {
 	//  VISUALES
  	ramon.iniciarNivel()
  	game.addVisual(enemigo3)
- 	game.addVisual(enemigo1)	
+ 	game.addVisual(enemigo1)
+ 	game.addVisual(enemigoRandom)
 
  	game.onTick(1000, "movimiento", {enemigo1.moverse()})
  	game.onTick(1000, "movimiento", {enemigo3.moverse()})
+ 	game.onTick(1000, "movimiento", {enemigoRandom.moverse()})
  	
  	game.onCollideDo(bomberman, { personaje => personaje.teEncontro(bomberman)  } )
 	
