@@ -4,7 +4,7 @@ import objetos.*
 
 
 class Enemigo{
-	var property position = game.at(3, 4)
+	var property position = game.at(5,5)
 
 	method image()
 	
@@ -38,7 +38,7 @@ class EnemigoLateral inherits Enemigo {
 		return "enemigo.png" }
 	
 	override method moverse() {
-		if (position.x() == 9 or (position.x() > 0 and anteriorPosicion.x() > position.x())) {
+		if (position.x() == 20 or (position.x() > 0 and anteriorPosicion.x() > position.x())) {
    			anteriorPosicion = position
     		position = self.position().left(1)
 		} else {
@@ -55,7 +55,7 @@ class EnemigoVertical inherits Enemigo{
 		return "enemigo.png" }
 	
 	override method moverse() {
-		if (position.y() == 9 or (position.y() > 0 and anteriorPosicion.y() > position.y())) {
+		if (position.y() == 11 or (position.y() > 0 and anteriorPosicion.y() > position.y())) {
    			anteriorPosicion = position
     		position = self.position().down(1)
 		} else {
@@ -73,8 +73,8 @@ class EnemigoRandom inherits Enemigo {
 	override method moverse() {
 		// Esto me retorna un numero entre el 1 y el 4
 		const direccionRandom = 0.randomUpTo(3).roundUp()
-		const puedeMoverseArriba = position.y() != 10 && game.getObjectsIn(self.position().up(1)).isEmpty() 
-		const puedeMoverseDerecha = position.x() != 10 && game.getObjectsIn(self.position().right(1)).isEmpty()
+		const puedeMoverseArriba = position.y() != 11 && game.getObjectsIn(self.position().up(1)).isEmpty() 
+		const puedeMoverseDerecha = position.x() != 20 && game.getObjectsIn(self.position().right(1)).isEmpty()
 		const puedeMoverseAbajo = position.y() != 0 && game.getObjectsIn(self.position().down(1)).isEmpty()
 		const puedeMoverseIzquierda = position.x() != 0 && game.getObjectsIn(self.position().left(1)).isEmpty()
 		

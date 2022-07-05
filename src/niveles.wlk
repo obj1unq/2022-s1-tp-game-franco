@@ -10,27 +10,54 @@ class Nivel1{
 		//Bomberman
 		game.addVisual(bomberman)
 		//Puerta
-		puertaGanadora.construir(game.at(2,3))
+		puertaGanadora.construir(game.at(19,1))
 		//Dura
-		constructorPared.construirParedDura(game.at(0,9),abajo,4)
-		constructorPared.construirParedDura(game.at(2,5),arriba,2)
-		constructorPared.construirParedDura(game.at(2,9),derecha,4)
-		constructorPared.construirParedDura(game.at(2,5),arriba,2) 
-		constructorPared.construirParedDura(game.at(0,4),abajo,4)
-		constructorPared.construirParedDura(game.at(9,10),abajo,9)
-		constructorPared.construirParedDura(game.at(2,1),derecha,6)
-		constructorPared.construirParedDura(game.at(4,3),derecha,3)
-		constructorPared.construirParedDura(game.at(4,5),arriba,3)
-		constructorPared.construirParedDura(game.at(5,5),arriba,3)
-		constructorPared.construirParedDura(game.at(6,5),arriba,3)
+		constructorPared.construirParedDura(game.at(0,0),arriba,11)
+		constructorPared.construirParedDura(game.at(0,0),derecha,21)
+		constructorPared.construirParedDura(game.at(0,11),derecha,21)
+		constructorPared.construirParedDura(game.at(20,0),arriba,11)
+		constructorPared.construirParedDura(game.at(1,8),derecha,2)
+		constructorPared.construirParedDura(game.at(2,6),abajo,3)
+		constructorPared.construirParedDura(game.at(2,2),derecha,3)
+		constructorPared.construirParedDura(game.at(4,10),abajo,4) 
+		constructorPared.construirParedDura(game.at(6,1),arriba,5)
+		constructorPared.construirParedDura(game.at(7,3),derecha,1)
+		constructorPared.construirParedDura(game.at(7,9),derecha,4)
+		constructorPared.construirParedDura(game.at(9,8),abajo,3)
+		constructorPared.construirParedDura(game.at(9,1),arriba,1)
+		constructorPared.construirParedDura(game.at(10,3),arriba,2)
+		constructorPared.construirParedDura(game.at(12,2),arriba,3)
+		constructorPared.construirParedDura(game.at(12,6),derecha,4)
+		constructorPared.construirParedDura(game.at(12,8),arriba,3)
+		constructorPared.construirParedDura(game.at(13,6),arriba,1)
+		constructorPared.construirParedDura(game.at(14,9),arriba,3)
+		constructorPared.construirParedDura(game.at(16,10),abajo,3)
+		constructorPared.construirParedDura(game.at(14,4),abajo,3)
+		constructorPared.construirParedDura(game.at(15,2),derecha,2)
+		constructorPared.construirParedDura(game.at(16,4),arriba,1)
+		constructorPared.construirParedDura(game.at(17,6),arriba,1)
+		constructorPared.construirParedDura(game.at(18,1),arriba,4)
+		constructorPared.construirParedDura(game.at(18,6),arriba,4)
+		
+		
 		//Blanda
-		constructorPared.construirParedBlanda(game.at(2,8),abajo,2)
-		constructorPared.construirParedBlanda(game.at(2,10),arriba,1)
-		constructorPared.construirParedBlanda(game.at(0,5),abajo,1)
-		constructorPared.construirParedBlanda(game.at(6,10),abajo,2)
-		constructorPared.construirParedBlanda(game.at(8,1),derecha,2)
-		constructorPared.construirParedBlanda(game.at(8,5),arriba,3)
-		constructorPared.construirParedBlanda(game.at(2,3),abajo,1)
+		constructorPared.construirParedBlanda(game.at(1,4),arriba,4)
+		constructorPared.construirParedBlanda(game.at(2,3),derecha,2)
+		constructorPared.construirParedBlanda(game.at(3,1),abajo,1)
+		constructorPared.construirParedBlanda(game.at(7,5),arriba,4)
+		constructorPared.construirParedBlanda(game.at(8,5),arriba,4)
+		constructorPared.construirParedBlanda(game.at(9,2),derecha,3)
+		constructorPared.construirParedBlanda(game.at(10,1),derecha,2)
+		constructorPared.construirParedBlanda(game.at(11,5),arriba,6)
+		constructorPared.construirParedBlanda(game.at(10,10),arriba,1)
+		constructorPared.construirParedBlanda(game.at(13,10),abajo,3)
+		constructorPared.construirParedBlanda(game.at(15,5),abajo,3)
+		constructorPared.construirParedBlanda(game.at(17,10),abajo,2)
+		constructorPared.construirParedBlanda(game.at(17,3),abajo,3)
+		constructorPared.construirParedBlanda(game.at(18,5),abajo,1)
+		constructorPared.construirParedBlanda(game.at(19,5),abajo,3)
+		constructorPared.construirParedBlanda(game.at(19,1),abajo,1)
+		
 	}
 }
 
@@ -89,6 +116,7 @@ object constructorPared{
 	}
 	}
 }
+
 object guardadorDeBloquesBlandos{
 	var property listaDeBloques = []
 	method agregarBloque(bloque){

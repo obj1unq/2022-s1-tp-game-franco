@@ -13,8 +13,8 @@ program bomberman {
 	
 	game.title("Bomberman")
 	game.cellSize(50)
-	game.height(11)
-	game.width(11)
+	game.height(13)
+	game.width(21)
 	game.ground("fondo2.jpg")
 	
 
