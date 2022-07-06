@@ -4,7 +4,7 @@ import objetos.*
 
 
 class Enemigo{
-	var property position = game.at(5,5)
+	var property position = game.at(11,5)
 
 	method image()
 	

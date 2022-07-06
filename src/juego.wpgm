@@ -9,7 +9,7 @@ program bomberman {
 	var enemigo3 = new EnemigoVertical()
 	var enemigo1 = new EnemigoLateral()
 	var enemigoRandom = new EnemigoRandom()
-	const ramon = new Nivel1()
+	const ramon = new Nivel2()
 	
 	game.title("Bomberman")
 	game.cellSize(50)
