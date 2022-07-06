@@ -31,7 +31,7 @@ program bomberman {
  	game.onCollideDo(bomberman, { personaje => personaje.teEncontro(bomberman)  } )
 	
  	// TECLADO
- 	keyboard.n().onPressDo( {ramon.iniciarNivel() }) // prueba de inciar
+ //	keyboard.n().onPressDo( {ramon.iniciarNivel() }) // prueba de inciar
  	keyboard.b().onPressDo( { bomberman.poner(new Bomba()) })
  	keyboard.left().onPressDo( { bomberman.mover(izquierda) } )
 	keyboard.right().onPressDo( { bomberman.mover(derecha) } )
