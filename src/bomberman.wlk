@@ -3,18 +3,17 @@ import objetos.*
 import niveles.*
 
 object bomberman {
-	const property powerups = []
-	var property position = game.at(3,3)
+	var property position = game.at(1,10)
 	const property image = "bomberman.png"
 
-method posicion(){
+/*method posicion(){
 	return position
-}
+}*/
 
-method poner(objeto){
-	game.addVisual(objeto)
-	game.schedule(1500, {objeto.explotar()})	
-	}
+method poner(bomba){
+	game.addVisual(bomba)
+	game.schedule(1500, {bomba.explotar()})	
+}
 
 method perder() {
 	self.terminar("Perdí!")
@@ -43,16 +42,11 @@ method siguientePosicionEsVacia(_direccion){
 method celdaEsPuertaGanadora(_direccion){
 	return _direccion.siguiente(self.position()) == puertaGanadora.position() and game.getObjectsIn(_direccion.siguiente(self.position())) == [puertaGanadora]
 	}
-	
-method celdaEsPowerUp(_direccion){
-	return _direccion.siguiente(self.position()) == powerUp.position() and game.getObjectsIn(_direccion.siguiente(self.position())) == [powerUp]
-	}
-	
 method validarEjeX(_direccion){
-	return _direccion.siguiente(self.position()).x() != -1 and _direccion.siguiente(self.position()).x() != 11
+	return _direccion.siguiente(self.position()).x() != -1 and _direccion.siguiente(self.position()).x() != 21
 }
 method validarEjeY(_direccion){
-	return _direccion.siguiente(self.position()).y() != -1 and _direccion.siguiente(self.position()).y() != 11
+	return _direccion.siguiente(self.position()).y() != -1 and _direccion.siguiente(self.position()).y() != 13
 }
 method terminar(mensaje) {
 		game.say(self, mensaje)

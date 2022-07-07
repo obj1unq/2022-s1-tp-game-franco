@@ -1,17 +1,13 @@
 import configuracion.*
 import wollok.game.*
 import objetos.*
-
+import bomberman.*
 
 class Enemigo{
-	var property position = game.at(3, 4)
+	var property position = game.at(3,10)
 
 	method image()
 	
-	method position() {
-		return position
-	}
- 
 	method teEncontro(alguien) {
 		alguien.perder()
 	}
@@ -20,15 +16,7 @@ class Enemigo{
 	}
 	
 	method moverse()
-	method validarMoverse(){
-		
-	}
-
-	method listaDePosicionesPosibles(){
-		return [abajo.siguiente(self.position()),arriba.siguiente(self.position()),derecha.siguiente(self.position()),
-			izquierda.siguiente(self.position())]
-	}
-	
+	method validarMoverse(){}	
 }
 
 class EnemigoLateral inherits Enemigo {
@@ -38,7 +26,7 @@ class EnemigoLateral inherits Enemigo {
 		return "enemigo.png" }
 	
 	override method moverse() {
-		if (position.x() == 9 or (position.x() > 0 and anteriorPosicion.x() > position.x())) {
+		if (position.x() == 20 or (position.x() > 0 and anteriorPosicion.x() > position.x())) {
    			anteriorPosicion = position
     		position = self.position().left(1)
 		} else {
@@ -55,7 +43,7 @@ class EnemigoVertical inherits Enemigo{
 		return "enemigo.png" }
 	
 	override method moverse() {
-		if (position.y() == 9 or (position.y() > 0 and anteriorPosicion.y() > position.y())) {
+		if (position.y() == 11 or (position.y() > 0 and anteriorPosicion.y() > position.y())) {
    			anteriorPosicion = position
     		position = self.position().down(1)
 		} else {
@@ -70,14 +58,37 @@ class EnemigoRandom inherits Enemigo {
 	override method image() {
 		return "enemigo.png" }
 	
-	override method moverse() {
-		// Esto me retorna un numero entre el 1 y el 4
-		const direccionRandom = 0.randomUpTo(3).roundUp()
-		const puedeMoverseArriba = position.y() != 10 && game.getObjectsIn(self.position().up(1)).isEmpty() 
-		const puedeMoverseDerecha = position.x() != 10 && game.getObjectsIn(self.position().right(1)).isEmpty()
-		const puedeMoverseAbajo = position.y() != 0 && game.getObjectsIn(self.position().down(1)).isEmpty()
-		const puedeMoverseIzquierda = position.x() != 0 && game.getObjectsIn(self.position().left(1)).isEmpty()
+	override method moverse() {	
+		const listaDePosibles = [arriba.siguiente(self.position()),abajo.siguiente(self.position()),derecha.siguiente(self.position()),izquierda.siguiente(self.position())]
+		const listaFiltrada=listaDePosibles.filter({posicion => self.mePuedoMover(posicion)})
+		if(! listaFiltrada.isEmpty()){
+			position = listaFiltrada.anyOne()
+		}
 		
+	}
+		method mePuedoMover(_direccion){
+			return self.noEstaEnLimite(_direccion) && (self.siguientePosicionEsVacia(_direccion) || self.estaBomber(_direccion))
+		}
+		method noEstaEnLimite(_direccion){
+			return	_direccion.y() < game.height() - 1 && _direccion.x() < game.width() &&
+			_direccion.y() > 0 && _direccion.x() > 0
+		}		
+		method siguientePosicionEsVacia(_direccion){
+			return game.getObjectsIn(_direccion).isEmpty() 
+		}
+		method estaBomber(_direccion){
+			return game.getObjectsIn(_direccion).contains(bomberman)
+		}
+}
+	
+	
+	/*	const direccionRandom = 0.randomUpTo(3).roundUp()
+		const puedeMoverseArriba = position.y() != 11 && game.getObjectsIn(self.position().up(1)).isEmpty() 
+		const puedeMoverseDerecha = position.x() != 20 && game.getObjectsIn(self.position().right(1)).isEmpty()
+		const puedeMoverseAbajo = position.y() != 0 && game.getObjectsIn(self.position().down(1)).isEmpty()
+		const puedeMoverseIzquierda = position.x() != 0 && game.getObjectsIn(self.position().left(1)).isEmpty() */
+	
+/*
 		console.println(puedeMoverseArriba)
 		console.println(puedeMoverseDerecha)
 		console.println(puedeMoverseAbajo)
@@ -97,19 +108,11 @@ class EnemigoRandom inherits Enemigo {
 		// Mover izquierda
 		if (direccionRandom == 4 && puedeMoverseIzquierda) {
 			position = self.position().left(1)
-		}
-		
-		if (!puedeMoverseArriba && !puedeMoverseDerecha && !puedeMoverseAbajo && !puedeMoverseIzquierda) {
+		} */
+	
+/* 	if (!puedeMoverseArriba && !puedeMoverseDerecha && !puedeMoverseAbajo && !puedeMoverseIzquierda) {
 			self.moverse()
-		}
-		
-	}
-	
-}
-	
-	
-	
-
+		}*/
 
 
 
