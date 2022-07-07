@@ -3,6 +3,7 @@ import objetos.*
 import niveles.*
 
 object bomberman {
+	const property powerups = []
 	var property position = game.at(3,3)
 	const property image = "bomberman.png"
 
@@ -31,7 +32,8 @@ method mover(_direccion) {
 	}
 }
 method puedoPasar(_direccion){
-	return (self.siguientePosicionEsVacia(_direccion) or self.celdaEsPuertaGanadora(_direccion)) and
+	return (self.siguientePosicionEsVacia(_direccion) or self.celdaEsPuertaGanadora(_direccion) or 
+	self.celdaEsPowerUp(_direccion)) and
 	self.validarEjeX(_direccion) and self.validarEjeY(_direccion)
 
 }
@@ -41,6 +43,11 @@ method siguientePosicionEsVacia(_direccion){
 method celdaEsPuertaGanadora(_direccion){
 	return _direccion.siguiente(self.position()) == puertaGanadora.position() and game.getObjectsIn(_direccion.siguiente(self.position())) == [puertaGanadora]
 	}
+	
+method celdaEsPowerUp(_direccion){
+	return _direccion.siguiente(self.position()) == powerUp.position() and game.getObjectsIn(_direccion.siguiente(self.position())) == [powerUp]
+	}
+	
 method validarEjeX(_direccion){
 	return _direccion.siguiente(self.position()).x() != -1 and _direccion.siguiente(self.position()).x() != 11
 }
@@ -51,5 +58,17 @@ method terminar(mensaje) {
 		game.say(self, mensaje)
 		game.schedule(2000, {game.stop()})
 	}
+
+method agregarPowerUp(){
+	powerups.add("SuperBomba")
+}
+
+method powerUps(){
+	return powerups
+}
+
+method comprobarPowerUps(){
+	if(self.powerUps().isEmpty()) {} else {powerups.remove("SuperBomba")}
+}
 
 }

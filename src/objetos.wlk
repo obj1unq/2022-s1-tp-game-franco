@@ -7,20 +7,42 @@ class Bomba {
 	const property position = bomberman.posicion()
 	const fuegos = []
 	
+	
 	method explotar() {
 		game.removeVisual(self)
 		self.crearFuegos()
 		self.explosionAparecer()
+		bomberman.comprobarPowerUps()
 		game.schedule(1500,{self.explosionDesaparecer()})
 	}
 	
+	
 	method crearFuegos(){
+		if(bomberman.powerups().isEmpty())
+		self.fuegoSimple()
+		else self.fuegoComplejo() 
+	}
+	
+	method fuegoSimple(){
 		fuegos.add(new Fuego(position = self.position().up(1)))
 		fuegos.add(new Fuego(position = self.position().down(1)))
 		fuegos.add(new Fuego(position = self.position().left(1)))
 		fuegos.add(new Fuego(position = self.position().right(1)))
-		fuegos.add(new Fuego(position = self.position()))
+		fuegos.add(new Fuego(position = self.position())) 
 	}
+	
+	method fuegoComplejo(){
+		fuegos.add(new Fuego(position = self.position().up(1)))
+		fuegos.add(new Fuego(position = self.position().up(2)))
+		fuegos.add(new Fuego(position = self.position().down(1)))
+		fuegos.add(new Fuego(position = self.position().down(2)))
+		fuegos.add(new Fuego(position = self.position().left(1)))
+		fuegos.add(new Fuego(position = self.position().left(2)))
+		fuegos.add(new Fuego(position = self.position().right(1)))
+		fuegos.add(new Fuego(position = self.position().right(2)))
+		fuegos.add(new Fuego(position = self.position())) 
+		}
+	
 	
 	method explosionAparecer(){
 		fuegos.forEach({fuego => game.addVisual(fuego)})
@@ -75,6 +97,17 @@ object puertaGanadora{
 		position=_position
 	}
 	method encontreFuego(){}
+}
+
+object powerUp{
+	
+	const property image = "powerup-bomba.png"
+	const property position = game.at(2,2)
+	
+	method teEncontro(personaje){
+		personaje.agregarPowerUp()
+		game.removeVisual(self)
+	}	
 }
 
 /*class Enemigo{

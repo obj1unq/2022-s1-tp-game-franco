@@ -23,15 +23,17 @@ program bomberman {
  	game.addVisual(enemigo3)
  	game.addVisual(enemigo1)
  	game.addVisual(enemigoRandom)
+ 	game.addVisual(powerUp)
 
  	game.onTick(1000, "movimiento", {enemigo1.moverse()})
  	game.onTick(1000, "movimiento", {enemigo3.moverse()})
  	game.onTick(1000, "movimiento", {enemigoRandom.moverse()})
  	
  	game.onCollideDo(bomberman, { personaje => personaje.teEncontro(bomberman)  } )
+
 	
  	// TECLADO
- //	keyboard.n().onPressDo( {ramon.iniciarNivel() }) // prueba de inciar
+ 	keyboard.n().onPressDo( {ramon.iniciarNivel() }) // prueba de inciar
  	keyboard.b().onPressDo( { bomberman.poner(new Bomba()) })
  	keyboard.left().onPressDo( { bomberman.mover(izquierda) } )
 	keyboard.right().onPressDo( { bomberman.mover(derecha) } )
