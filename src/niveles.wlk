@@ -8,6 +8,7 @@ object nivel1{
 	method iniciarNivel(){
 		//Bomberman
 		game.addVisual(bomberman)
+	 	game.addVisual(powerUp)
 		//Puerta
 		puertaGanadora.construir(game.at(19,1))
 		//Enemigos 
@@ -68,6 +69,7 @@ object nivel2{
 		method iniciarNivel(){
 		//Bomberman
 		game.addVisual(bomberman)
+		game.addVisual(powerUp)
 		//Puerta
 		puertaGanadora.construir(game.at(4,9))
 		//Dura

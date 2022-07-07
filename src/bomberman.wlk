@@ -3,6 +3,7 @@ import objetos.*
 import niveles.*
 
 object bomberman {
+	const property powerups = []
 	var property position = game.at(1,10)
 	const property image = "bomberman.png"
 
@@ -41,6 +42,9 @@ method siguientePosicionEsVacia(_direccion){
 }
 method celdaEsPuertaGanadora(_direccion){
 	return _direccion.siguiente(self.position()) == puertaGanadora.position() and game.getObjectsIn(_direccion.siguiente(self.position())) == [puertaGanadora]
+	}	
+method celdaEsPowerUp(_direccion){
+	return _direccion.siguiente(self.position()) == powerUp.position() and game.getObjectsIn(_direccion.siguiente(self.position())) == [powerUp]
 	}
 method validarEjeX(_direccion){
 	return _direccion.siguiente(self.position()).x() != -1 and _direccion.siguiente(self.position()).x() != 21
