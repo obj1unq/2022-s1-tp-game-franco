@@ -3,7 +3,7 @@
 ## Equipo de desarrollo
 
 - Franco Vega
-- Alejo
+- Alejo Villaizan
 - Lucas Sordini
 
 ## Capturas
