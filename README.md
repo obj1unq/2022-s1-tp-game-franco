@@ -16,6 +16,10 @@ El principal objetivo de este juego es pasar niveles usando bombas, que explotan
 
 Si nuestro heroe colisiona contra un enemigo o la explosion de una bomba pierde
 
+Power Ups:
+-Permiten aumentan el nivel de nuestra bomba
+
+
 ## Otros
  
 - Programacion con Objetos 1/ UNQ
