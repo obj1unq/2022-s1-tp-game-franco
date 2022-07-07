@@ -1,16 +1,17 @@
 import wollok.game.*
 import objetos.*
 import bomberman.*
+import enemigo.*
 
-class Nivel1{
-//	const listaDeBloques = []
-//	const listaDePosiciones=[1,2,3,4,5,6,7,8,9,10]
+object nivel1{
 	
 	method iniciarNivel(){
 		//Bomberman
 		game.addVisual(bomberman)
 		//Puerta
 		puertaGanadora.construir(game.at(19,1))
+		//Enemigos 
+		constructorEnemigos.construirEnemigos(6)
 		//DuraContorno
 		constructorPared.construirParedDura(game.at(0,0),arriba,11)
 		constructorPared.construirParedDura(game.at(0,0),derecha,21)
@@ -62,16 +63,13 @@ class Nivel1{
 	}
 }
 
-class Nivel2{
-//	const listaDeBloques = []
-//	const listaDePosiciones=[1,2,3,4,5,6,7,8,9,10]
-	
+object nivel2{
 	
 		method iniciarNivel(){
 		//Bomberman
 		game.addVisual(bomberman)
 		//Puerta
-		puertaGanadora.construir(game.at(18,1))
+		puertaGanadora.construir(game.at(4,9))
 		//Dura
 		constructorPared.construirParedDura(game.at(0,0),arriba,11)
 		constructorPared.construirParedDura(game.at(0,0),derecha,21)
@@ -142,9 +140,8 @@ class Nivel2{
 		constructorPared.construirParedBlanda(game.at(17,10),abajo,2)
 		constructorPared.construirParedBlanda(game.at(18,7),abajo,1)
 		constructorPared.construirParedBlanda(game.at(19,2),arriba,1)
-		
-
-		
+		//Enemigos
+		constructorEnemigos.construirEnemigos(6)
 	}
 }
 
@@ -156,9 +153,9 @@ class BloqueDuro{
 		return position
 	}
 
-	method posicionRandom(){
+/* 	method posicionRandom(){
 		position = randomizer.position()
-	}
+	}*/
 	method construir(){
 		game.addVisual(self) //falta hacer algo
 	}
@@ -189,7 +186,7 @@ object constructorPared{
 	if( numeroBloques > 0){
 		const bloque = new BloqueBlando(position=_position)	
 		bloque.construir()
-		guardadorDeBloquesBlandos.agregarBloque(bloque)
+	//	guardadorDeBloquesBlandos.agregarBloque(bloque)
 		self.construirParedBlanda(sentido.siguiente(_position),sentido,numeroBloques-1)
 	}
 	}
@@ -203,21 +200,31 @@ object constructorPared{
 	}
 	}
 }
-
-object guardadorDeBloquesBlandos{
+object constructorEnemigos{
+	
+	method construirEnemigos(cantidad){
+		if( cantidad > 0){
+		const enemigo = new EnemigoRandom(position=randomizer.emptyPosition())	
+		game.addVisual(enemigo)
+		game.onTick(1000, "movimiento", {enemigo.moverse()})
+		self.construirEnemigos(cantidad-1)
+	}
+}
+}
+/*object guardadorDeBloquesBlandos{
 	var property listaDeBloques = []
 	method agregarBloque(bloque){
 		listaDeBloques.add(bloque)
 	}
 }
-
+*/
 
 object randomizer {
 		
 	method position() {
 		return 	game.at( 
-					(0 .. game.width() - 1 ).anyOne(),
-					(0..  game.height() - 1).anyOne()
+					(1 .. game.width() - 1 ).anyOne(),
+					(1..  game.height() - 2).anyOne()
 		) 
 	}
 	
@@ -233,26 +240,5 @@ object randomizer {
 }
 
 
-object derecha {
-	method siguiente(posicion) {
-		return posicion.right(1)	
-	}
-}
 
-object izquierda {
-	method siguiente(posicion) {
-		return posicion.left(1)	
-	}	
-}
-object arriba {
-	method siguiente(posicion) {
-		return posicion.up(1)	
-	}	
-}
-
-object abajo {
-	method siguiente(posicion) {
-		return posicion.down(1)	
-	}
-}
 

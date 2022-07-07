@@ -6,14 +6,14 @@ object bomberman {
 	var property position = game.at(1,10)
 	const property image = "bomberman.png"
 
-method posicion(){
+/*method posicion(){
 	return position
-}
+}*/
 
-method poner(objeto){
-	game.addVisual(objeto)
-	game.schedule(1500, {objeto.explotar()})	
-	}
+method poner(bomba){
+	game.addVisual(bomba)
+	game.schedule(1500, {bomba.explotar()})	
+}
 
 method perder() {
 	self.terminar("Perdí!")
