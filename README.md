@@ -18,7 +18,7 @@ Si nuestro heroe colisiona contra un enemigo o la explosion de una bomba pierde
 
 ## Power Ups:
 
--Permiten aumentan el nivel de nuestra bomba
+-Permiten aumentar el nivel de nuestra bomba
 
 
 ## Otros
