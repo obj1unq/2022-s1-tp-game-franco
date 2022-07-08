@@ -9,25 +9,35 @@ class Nivel{
 	const property mapaDeNivel
 	
 	method iniciar(){ 
-		mapaDeNivel.crearMapa()
+		
+		
+		mapaDeNivel.iniciar()
+		//crearbomberman
+		//crearenemigos
+		//game.onCollideDo(bomberman, { personaje => personaje.teEncontro(bomberman)  } )
+		
+		
 	}
 	
 }
 
 object pantallaInicial{
+	const property position= game.at(5,5)
+	var property image = "pepita.png"
+	
 	
 	method iniciar() {
-		game.addVisual(self)
-		configurar.pasarPantalla(configurar.pantalla1())
+		game.addVisualIn(image, position)
+		configurar.pasarPantalla(mapa1)
 	}
 	
-	method image() {
+	/*method image() {
 		return "pepita.png"
 	}
 	
 	method position(){
 		return game.origin()
-	}
+	}*/
 }
 
 
@@ -37,9 +47,9 @@ object mapa1{
 		configurar.pantalla2().iniciar()
 	}
 	
-	method crearMapa(){
+	method iniciar(){
 		//Bomberman
-		game.addVisual(bomberman)
+		//game.addVisual(bomberman)
 	 	game.addVisual(powerUp)
 		//Puerta
 		puertaGanadora.construir(game.at(19,1))
@@ -102,9 +112,9 @@ object mapa2{
 		//pantallaFinal().iniciar()
 		}
 	
-		method crearMapa(){
+		method iniciar(){
 		//Bomberman
-		game.addVisual(bomberman)
+		//game.addVisual(bomberman)
 		game.addVisual(powerUp)
 		//Puerta
 		puertaGanadora.construir(game.at(4,9))

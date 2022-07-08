@@ -43,4 +43,6 @@ object configurar{
 	method pasarPantalla(nivel) { 
 		keyboard.enter().onPressDo({nivel.iniciar()})
 	}
+	
+	
 }
