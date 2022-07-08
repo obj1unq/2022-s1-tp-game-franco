@@ -66,7 +66,12 @@ method powerUps(){
 }
 
 method comprobarPowerUps(){
-	if(self.powerUps().isEmpty()) {} else {powerups.remove("SuperBomba")}
+	if(self.powerUps().isEmpty()) {} else {self.removerSuperBomba()}
+}
+
+method removerSuperBomba(){
+	powerups.remove("SuperBomba")
+	powerUp.removerVisualDeBarra()	
 }
 
 }
