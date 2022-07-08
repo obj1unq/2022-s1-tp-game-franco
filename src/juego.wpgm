@@ -3,6 +3,9 @@ import bomberman.*
 import objetos.*
 import enemigo.*
 import niveles.*
+import configuracion.*
+
+
 program bomberman {
 	//  CONFIG	
 	game.title("Bomberman")
@@ -10,8 +13,8 @@ program bomberman {
 	game.height(13)
 	game.width(21)
 	game.ground("fondo2.jpg")
-	nivel2.iniciarNivel() 
-
+	//nivel2.iniciarNivel() 
+	pantallaInicial.iniciar()
 
 	//  VISUALES	
  	game.onCollideDo(bomberman, { personaje => personaje.teEncontro(bomberman)  } )

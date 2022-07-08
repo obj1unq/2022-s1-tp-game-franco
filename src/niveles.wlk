@@ -2,10 +2,42 @@ import wollok.game.*
 import objetos.*
 import bomberman.*
 import enemigo.*
+import configuracion.*
 
-object nivel1{
+
+class Nivel{
+	const property mapaDeNivel
 	
-	method iniciarNivel(){
+	method iniciar(){ 
+		mapaDeNivel.crearMapa()
+	}
+	
+}
+
+object pantallaInicial{
+	
+	method iniciar() {
+		game.addVisual(self)
+		configurar.pasarPantalla(configurar.pantalla1())
+	}
+	
+	method image() {
+		return "pepita.png"
+	}
+	
+	method position(){
+		return game.origin()
+	}
+}
+
+
+object mapa1{
+	
+	method siguienteNivel(){
+		configurar.pantalla2().iniciar()
+	}
+	
+	method crearMapa(){
 		//Bomberman
 		game.addVisual(bomberman)
 	 	game.addVisual(powerUp)
@@ -64,9 +96,13 @@ object nivel1{
 	}
 }
 
-object nivel2{
+object mapa2{
 	
-		method iniciarNivel(){
+		method siguienteNivel(){
+		//pantallaFinal().iniciar()
+		}
+	
+		method crearMapa(){
 		//Bomberman
 		game.addVisual(bomberman)
 		game.addVisual(powerUp)
@@ -172,7 +208,10 @@ class BloqueDuro{
 }
 
 class BloqueBlando inherits BloqueDuro{
-	const property image="pared-blanda.png"
+	
+	override method image() {
+		return "pared-blanda.png"
+	} 
 	
 	method desaparecer(){
 		game.removeVisual(self)

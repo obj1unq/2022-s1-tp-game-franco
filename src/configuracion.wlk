@@ -1,6 +1,7 @@
 import enemigo.*
 import wollok.game.*
 import bomberman.*
+import niveles.*
 
 
 object derecha {
@@ -33,4 +34,13 @@ object abajo {
 		return posicion.down(1)
 	}
 
+}
+
+object configurar{
+	const property pantalla1 = new Nivel(mapaDeNivel  = mapa1)
+	const property pantalla2 = new Nivel(mapaDeNivel  = mapa2)
+	
+	method pasarPantalla(nivel) { 
+		keyboard.enter().onPressDo({nivel.iniciar()})
+	}
 }
