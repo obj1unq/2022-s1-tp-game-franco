@@ -72,6 +72,8 @@ object nivel2{
 		game.addVisual(powerUp)
 		//Puerta
 		puertaGanadora.construir(game.at(4,9))
+		//PowerUps
+			//powerUp.construir(game.at(3,9))
 		//Dura
 		constructorPared.construirParedDura(game.at(0,0),arriba,11)
 		constructorPared.construirParedDura(game.at(0,0),derecha,21)

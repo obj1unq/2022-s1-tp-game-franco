@@ -102,7 +102,7 @@ object puertaGanadora{
 object powerUp{
 	
 	const property image = "powerup-bomba.png"
-	const property position = game.at(4,10)
+	var property position = game.at(2,9)
 	
 	method teEncontro(personaje){
 		personaje.agregarPowerUp()
@@ -110,6 +110,12 @@ object powerUp{
 	}
 	
 	method encontreFuego(){}
+	
+	method construir(_position){
+	game.addVisualIn(self,_position)
+	position=_position
+	}
+	
 }
 
 /*class Enemigo{
