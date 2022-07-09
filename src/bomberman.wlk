@@ -23,15 +23,11 @@ object bomberman {
 		game.say(self,"GANE")
 		game.clear()
 		mapa1.siguienteNivel()
-			//game.schedule(2000, {game.stop()})
 	}
 		
 	method posicionInicial() {
 		self.position(game.at(1,10))	
 	}	 	
-
-
-
 
 method mover(_direccion) {
 	if(self.puedoPasar(_direccion)){

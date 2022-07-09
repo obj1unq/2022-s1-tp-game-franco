@@ -20,6 +20,7 @@ object configurar{
 		keyboard.up().onPressDo( { bomberman.mover(arriba) } )
 		keyboard.down().onPressDo( { bomberman.mover(abajo) } )
 	}
-	
-	
+	method configurarColisionBomber(){
+		game.onCollideDo(bomberman, { personaje => personaje.teEncontro(bomberman)  } )
+	}
 }

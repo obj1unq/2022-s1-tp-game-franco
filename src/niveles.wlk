@@ -7,11 +7,11 @@ import configuracion.*
 
 class Nivel{
 	const property mapaDeNivel
+	var property nivelActual
 	
 	method iniciar(){ 
-		bomberman.posicionInicial()
 		game.clear()
-		
+		bomberman.posicionInicial()
 		mapaDeNivel.iniciar()
 		
 		
@@ -29,12 +29,21 @@ object pantallaInicial{
 	
 	
 	method iniciar() {
-		game.addVisualIn(image, position)
+		game.boardGround("fondo2.jpg")
 		configurar.pasarPantalla(mapa1)
 	}
 
 }
 
+object pantallaFinal{
+	const property position= game.at(5,5)
+	var property image = "pantallaFinal.jpeg"
+	
+	method iniciar() {
+		game.boardGround(self)
+		game.schedule(1500, {game.stop()})
+	}
+}
 
 object mapa1{
 	
@@ -44,12 +53,13 @@ object mapa1{
 	
 	method iniciar(){
 		//Bomberman
+		game.boardGround("fondo2.jpg")
 		game.addVisual(bomberman)
 	 	game.addVisual(powerUp)
 	 	configurar.comandos()
-	 	game.onCollideDo(bomberman, { personaje => personaje.teEncontro(bomberman)  } )
+		configurar.configurarColisionBomber()
 		//Puerta
-		puertaGanadora.construir(game.at(19,1))
+		puertaGanadora.construir(game.at(3,10))
 		//Enemigos 
 		//constructorEnemigos.construirEnemigos(6)
 		//DuraContorno
@@ -106,17 +116,18 @@ object mapa1{
 object mapa2{
 	
 		method siguienteNivel(){
-		//pantallaFinal().iniciar()
+			pantallaFinal.iniciar()
 		}
 	
 		method iniciar(){
 		//Bomberman
-		game.addVisual(bomberman)
-		game.addVisual(powerUp)
-		configurar.comandos()
-		game.onCollideDo(bomberman, { personaje => personaje.teEncontro(bomberman)  } )
+//		game.boardGround("fondo2.jpg")
+//		game.addVisual(bomberman)
+//		game.addVisual(powerUp)
+//		configurar.comandos()
+//		configurar.configurarColisionBomber()
 		//Puerta
-		puertaGanadora.construir(game.at(4,9))
+		puertaGanadora.construir(game.at(4,10))
 		//PowerUps
 			//powerUp.construir(game.at(3,9))
 		//Dura

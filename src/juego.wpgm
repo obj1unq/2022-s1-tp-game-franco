@@ -12,7 +12,7 @@ program bomberman {
 	game.cellSize(50)
 	game.height(13)
 	game.width(21)
-	game.boardGround("fondo2.jpg")
+//	game.boardGround("fondo2.jpg")
 	
 	//game.addVisual(bomberman)
 	pantallaInicial.iniciar()

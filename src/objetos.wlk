@@ -87,6 +87,7 @@ class Fuego {
 	}
 	method encontreFuego(){}
 }
+
 object puertaGanadora{
 	var property position
 	const property image="puerta-ganadora.png"
