@@ -63,6 +63,9 @@ class Bomba {
 	method image() {
 		return "bomba.png"
 	}
+	
+	method encontreFuego(){}
+	
 }
 
 class Fuego {
@@ -82,8 +85,7 @@ class Fuego {
 	method encontrarObjetos(){
 		game.colliders(self).forEach({objeto => objeto.encontreFuego()})
 	}
-
-		
+	method encontreFuego(){}
 }
 object puertaGanadora{
 	var property position
@@ -122,34 +124,6 @@ object powerUp{
 	}
 	
 }
-
-/*class Enemigo{
-
-	const property posicion = game.at(2, 3)
-	var property position = game.at(2, 3)
-
-	method image() {
-		return "enemigo.png"
-	}
-
-	method position() {
-		return posicion
-	}
- 
-	method teEncontro(alguien) {
-		alguien.perder()
-	}
-	
-	method moverse(){
-		
-				var newX = position.x() + if(0.randomUpTo(4)>=2){1}else{-1}
-				var newY = position.y() + if(0.randomUpTo(4)>=2){1}else{-1}
-				// evitamos que se posicionen fuera del tablero
-				newX = newX.max(0).min(game.width() - 1)
-				newY = newY.max(0).min(game.height() - 1)
-				position = game.at(newX, newY)
-	}
-}*/
 
 object derecha {
 	method siguiente(posicion) {

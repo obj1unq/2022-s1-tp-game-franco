@@ -8,10 +8,6 @@ object bomberman {
 	var property position = game.at(1,10)
 	const property image = "bomberman.png"
 
-/*method posicion(){
-	return position
-}*/
-
 	method poner(bomba){
 		game.addVisual(bomba)
 		game.schedule(1500, {bomba.explotar()})	

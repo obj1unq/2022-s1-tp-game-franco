@@ -19,7 +19,6 @@ class Nivel{
 		//crearenemigos
 		//game.onCollideDo(bomberman, { personaje => personaje.teEncontro(bomberman)  } )
 		
-		
 	}
 	
 }
@@ -33,14 +32,7 @@ object pantallaInicial{
 		game.addVisualIn(image, position)
 		configurar.pasarPantalla(mapa1)
 	}
-	
-	/*method image() {
-		return "pepita.png"
-	}
-	
-	method position(){
-		return game.origin()
-	}*/
+
 }
 
 
@@ -209,12 +201,8 @@ class BloqueDuro{
 	method position(){
 		return position
 	}
-
-/* 	method posicionRandom(){
-		position = randomizer.position()
-	}*/
 	method construir(){
-		game.addVisual(self) //falta hacer algo
+		game.addVisual(self)
 	}
 	method encontreFuego(){}
 	method teEncontro(alguien){}
@@ -246,7 +234,6 @@ object constructorPared{
 	if( numeroBloques > 0){
 		const bloque = new BloqueBlando(position=_position)	
 		bloque.construir()
-	//	guardadorDeBloquesBlandos.agregarBloque(bloque)
 		self.construirParedBlanda(sentido.siguiente(_position),sentido,numeroBloques-1)
 	}
 	}
@@ -271,13 +258,6 @@ object constructorEnemigos{
 	}
 }
 }
-/*object guardadorDeBloquesBlandos{
-	var property listaDeBloques = []
-	method agregarBloque(bloque){
-		listaDeBloques.add(bloque)
-	}
-}
-*/
 
 object randomizer {
 		
