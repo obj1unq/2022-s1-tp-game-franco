@@ -1,6 +1,7 @@
 import wollok.game.*
 import objetos.*
 import niveles.*
+import configuracion.*
 
 object bomberman {
 	const property powerups = []
@@ -11,21 +12,31 @@ object bomberman {
 	return position
 }*/
 
-method poner(bomba){
-	game.addVisual(bomba)
-	game.schedule(1500, {bomba.explotar()})	
-}
-
-method perder() {
-	self.terminar("Perdí!")
+	method poner(bomba){
+		game.addVisual(bomba)
+		game.schedule(1500, {bomba.explotar()})	
 	}
-method encontreFuego(){
-	self.perder()
-}
-method ganar(){
-	game.say(self,"GANE")
-	game.schedule(2000, {game.stop()})
-}
+	
+	method perder() {
+		self.terminar("Perdí!")
+		}
+	method encontreFuego(){
+		self.perder()
+	}
+	method ganar(){
+		game.say(self,"GANE")
+		game.clear()
+		mapa1.siguienteNivel()
+			//game.schedule(2000, {game.stop()})
+	}
+		
+	method posicionInicial() {
+		self.position(game.at(1,10))	
+	}	 	
+
+
+
+
 method mover(_direccion) {
 	if(self.puedoPasar(_direccion)){
 		position=_direccion.siguiente(self.position())

@@ -7,27 +7,27 @@ import configuracion.*
 
 
 program bomberman {
-	//  CONFIG	/*
+	//  CONFIG	
 	game.title("Bomberman")
 	game.cellSize(50)
 	game.height(13)
 	game.width(21)
 	game.boardGround("fondo2.jpg")
-	//nivel2.iniciarNivel() */
-	game.addVisual(bomberman)
+	
+	//game.addVisual(bomberman)
 	pantallaInicial.iniciar()
 	
 
 	//  VISUALES	
- 	game.onCollideDo(bomberman, { personaje => personaje.teEncontro(bomberman)  } )
+ 	//game.onCollideDo(bomberman, { personaje => personaje.teEncontro(bomberman)  } )
 
 	 
  	// TECLADO
- 	keyboard.b().onPressDo( { bomberman.poner(new Bomba()) })
+ 	/*keyboard.b().onPressDo( { bomberman.poner(new Bomba()) })
  	keyboard.left().onPressDo( { bomberman.mover(izquierda) } )
 	keyboard.right().onPressDo( { bomberman.mover(derecha) } )
 	keyboard.up().onPressDo( { bomberman.mover(arriba) } )
-	keyboard.down().onPressDo( { bomberman.mover(abajo) } )
+	keyboard.down().onPressDo( { bomberman.mover(abajo) } )*/
  	//  COMIENZA
 	game.start()
 	

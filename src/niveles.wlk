@@ -9,9 +9,12 @@ class Nivel{
 	const property mapaDeNivel
 	
 	method iniciar(){ 
-		
+		bomberman.posicionInicial()
+		game.clear()
 		
 		mapaDeNivel.iniciar()
+		
+		
 		//crearbomberman
 		//crearenemigos
 		//game.onCollideDo(bomberman, { personaje => personaje.teEncontro(bomberman)  } )
@@ -49,12 +52,14 @@ object mapa1{
 	
 	method iniciar(){
 		//Bomberman
-		//game.addVisual(bomberman)
+		game.addVisual(bomberman)
 	 	game.addVisual(powerUp)
+	 	configurar.comandos()
+	 	game.onCollideDo(bomberman, { personaje => personaje.teEncontro(bomberman)  } )
 		//Puerta
 		puertaGanadora.construir(game.at(19,1))
 		//Enemigos 
-		constructorEnemigos.construirEnemigos(6)
+		//constructorEnemigos.construirEnemigos(6)
 		//DuraContorno
 		constructorPared.construirParedDura(game.at(0,0),arriba,11)
 		constructorPared.construirParedDura(game.at(0,0),derecha,21)
@@ -114,8 +119,10 @@ object mapa2{
 	
 		method iniciar(){
 		//Bomberman
-		//game.addVisual(bomberman)
+		game.addVisual(bomberman)
 		game.addVisual(powerUp)
+		configurar.comandos()
+		game.onCollideDo(bomberman, { personaje => personaje.teEncontro(bomberman)  } )
 		//Puerta
 		puertaGanadora.construir(game.at(4,9))
 		//PowerUps
