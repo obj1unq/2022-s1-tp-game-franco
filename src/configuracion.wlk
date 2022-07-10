@@ -6,11 +6,14 @@ import objetos.*
 
 
 object configurar{
+	
 	const property pantalla1 = new Nivel(mapaDeNivel  = mapa1)
 	const property pantalla2 = new Nivel(mapaDeNivel  = mapa2)
+	const property pantallaFinal = new Nivel(mapaDeNivel = mapaFinal)
 	
-	method pasarPantalla(nivel) { 
-		keyboard.enter().onPressDo({nivel.iniciar()})
+	method pasarPantalla() { 
+		keyboard.enter().onPressDo({pantalla1.iniciar()})
+		
 	}
 	
 	method comandos() {
@@ -20,7 +23,6 @@ object configurar{
 		keyboard.up().onPressDo( { bomberman.mover(arriba) } )
 		keyboard.down().onPressDo( { bomberman.mover(abajo) } )
 	}
-	method configurarColisionBomber(){
-		game.onCollideDo(bomberman, { personaje => personaje.teEncontro(bomberman)  } )
-	}
+	
+	
 }

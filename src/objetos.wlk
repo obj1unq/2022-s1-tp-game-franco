@@ -54,8 +54,8 @@ class Bomba {
 		fuegos.forEach({fuego => game.removeVisual(fuego)})
 	}	
 		
-	method teEncontro(alguien) {
-	}
+	method teEncontro(alguien) {}
+	
 	method bomberQuierePasar(){
 		return false
 	}
@@ -87,13 +87,14 @@ class Fuego {
 	}
 	method encontreFuego(){}
 }
-
 object puertaGanadora{
 	var property position
 	const property image="puerta-ganadora.png"
+	const property contadorDeNiveles = []
 	
 	method teEncontro(alguien){
-		alguien.ganar()
+		//contadorDeNiveles.add("PasoDeNivel")
+		if(contadorDeNiveles.isEmpty())	alguien.ganar() else alguien.finalizar()
 	}
 	method construir(_position){
 		game.addVisualIn(self,_position)
