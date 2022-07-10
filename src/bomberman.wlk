@@ -5,6 +5,7 @@ import configuracion.*
 
 object bomberman {
 	const property powerups = []
+	const property vida = []
 	var property position = game.at(1,10)
 	const property image = "bomberman.png"
 
@@ -47,7 +48,7 @@ method mover(_direccion) {
 }
 method puedoPasar(_direccion){
 	return (self.siguientePosicionEsVacia(_direccion) or self.celdaEsPuertaGanadora(_direccion) or 
-	self.celdaEsPowerUp(_direccion)) and
+	self.celdaEsPowerUp(_direccion) or self.celdaEsVida(_direccion)) and
 	self.validarEjeX(_direccion) and self.validarEjeY(_direccion)
 
 }
@@ -60,6 +61,11 @@ method celdaEsPuertaGanadora(_direccion){
 method celdaEsPowerUp(_direccion){
 	return _direccion.siguiente(self.position()) == powerUp.position() and game.getObjectsIn(_direccion.siguiente(self.position())) == [powerUp]
 	}
+	
+method celdaEsVida(_direccion){
+	return _direccion.siguiente(self.position()) == vidaExtra.position() and game.getObjectsIn(_direccion.siguiente(self.position())) == [vidaExtra]
+	}	
+	
 method validarEjeX(_direccion){
 	return _direccion.siguiente(self.position()).x() != -1 and _direccion.siguiente(self.position()).x() != 21
 }
@@ -67,12 +73,31 @@ method validarEjeY(_direccion){
 	return _direccion.siguiente(self.position()).y() != -1 and _direccion.siguiente(self.position()).y() != 13
 }
 method terminar(mensaje) {
+		self.comprobarVidaExtra()
 		game.say(self, mensaje)
 		game.schedule(2000, {game.stop()})
 	}
 
+
+method comprobarVidaExtra(){
+	if(self.powerUps().isEmpty()) {} else {self.removerVidaExtra()}
+}
+
+method removerVidaExtra(){
+	vida.remove("VidaExtra")
+	vidaExtra.removerVisualDeBarra()	
+}
+
+method vidaExtraBomberman(){
+	return vida
+}
+
 method agregarPowerUp(){
 	powerups.add("SuperBomba")
+}
+
+method agregarVida(){
+	vida.add("VidaExtra")
 }
 
 method powerUps(){

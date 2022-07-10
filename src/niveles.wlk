@@ -48,6 +48,7 @@ object mapa1{
 		puertaGanadora.construir(game.at(3,10))
 	 	game.addVisual(powerUp)
 	 	game.addVisual(barraPowerUp)
+	 	game.addVisual(vidaExtra)
 	 	game.addVisual(letrasPowerUp)
 	 	configurar.comandos()
 	 	configurar.colisiones()

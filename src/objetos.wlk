@@ -113,16 +113,40 @@ object powerUp{
 		game.addVisualIn(self,game.at(20,12))
 	}
 	
+	method removerVisualDeBarra(){
+		game.removeVisual(self)
+	}
+	
 	method encontreFuego(){}
 	
 	method construir(_position){
 	game.addVisualIn(self,_position)
 	}
 	
+}
+
+object vidaExtra{
+	
+	const property image = "life.png"
+	var property position = game.at(2,9)
+	
+	method teEncontro(personaje){
+		personaje.agregarVida()
+		game.removeVisual(self)
+		game.addVisualIn(self,game.at(19,12))
+	}
+	
+	method encontreFuego(){}
+	
 	method removerVisualDeBarra(){
 		game.removeVisual(self)
 	}
+	
 }
+	
+
+
+
 
 object barraPowerUp{
 	const property image = "powerUpBarra.png"
