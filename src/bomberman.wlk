@@ -73,14 +73,18 @@ method validarEjeY(_direccion){
 	return _direccion.siguiente(self.position()).y() != -1 and _direccion.siguiente(self.position()).y() != 13
 }
 method terminar(mensaje) {
-		self.comprobarVidaExtra()
-		game.say(self, mensaje)
-		game.schedule(2000, {game.stop()})
+		self.comprobarVidaExtra(mensaje)
+
 	}
 
 
-method comprobarVidaExtra(){
-	if(self.powerUps().isEmpty()) {} else {self.removerVidaExtra()}
+method comprobarVidaExtra(mensaje){
+	if(self.vidaExtraBomberman().isEmpty()) {self.terminarJuego(mensaje)} else {self.removerVidaExtra()}
+}
+
+method terminarJuego(mensaje){
+	game.say(self, mensaje)
+	game.schedule(2000, {game.stop()})
 }
 
 method removerVidaExtra(){
