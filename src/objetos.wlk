@@ -89,11 +89,10 @@ class Fuego {
 }
 object puertaGanadora{
 	var property position
-	const property image="puerta-ganadora.png"
+	const property image= "doors_open.png"//"puerta-ganadora.png" 
 	const property contadorDeNiveles = []
 	
 	method teEncontro(alguien){
-		//contadorDeNiveles.add("PasoDeNivel")
 		if(contadorDeNiveles.isEmpty())	alguien.ganar() else alguien.finalizar()
 	}
 	method construir(_position){
@@ -118,12 +117,22 @@ object powerUp{
 	
 	method construir(_position){
 	game.addVisualIn(self,_position)
-	position=_position
 	}
 	
 	method removerVisualDeBarra(){
 		game.removeVisual(self)
 	}
+}
+
+object barraPowerUp{
+	const property image = "powerUpBarra.png"
+	var property position = game.at(18,12)
+	
+}
+
+object letrasPowerUp{
+	const property image = "LetrasPower.png"
+	var property position = game.at(14,12)
 	
 }
 

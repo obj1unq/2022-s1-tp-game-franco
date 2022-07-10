@@ -27,7 +27,7 @@ object pantallaInicial{
 		game.height(13)
 		game.width(21)
 		game.addVisual(self)
-		game.boardGround("fondo2.jpg")
+		game.boardGround("ground.png")
 		configurar.pasarPantalla()
 		}
 }
@@ -41,16 +41,18 @@ object mapa1{
 	
 	method iniciar(){
 		
-		//Bomberman
+		//BOMBERMAN
 		game.addVisual(bomberman)
+		//PUERTA
 		puertaGanadora.construir(game.at(3,10))
-		game.boardGround("fondo2.jpg")
 	 	game.addVisual(powerUp)
+	 	game.addVisual(barraPowerUp)
+	 	game.addVisual(letrasPowerUp)
 	 	configurar.comandos()
-	 	game.onCollideDo(bomberman, { personaje => personaje.teEncontro(bomberman)  } )
-		//Puerta
+	 	configurar.colisiones()
 		//Enemigos 
-		//constructorEnemigos.construirEnemigos(6)
+		constructorEnemigos.construirEnemigos(6)
+		
 		//DuraContorno
 		constructorPared.construirParedDura(game.at(0,0),arriba,11)
 		constructorPared.construirParedDura(game.at(0,0),derecha,21)
@@ -112,18 +114,18 @@ object mapa2{
 		}
 	
 		method iniciar(){
-		game.boardGround("fondo2.jpg")
-		//Bomberman
+	
+		//BOMBERMAN
 		game.addVisual(bomberman)
 		game.addVisual(powerUp)
+		game.addVisual(barraPowerUp)
+		game.addVisual(letrasPowerUp)
 		configurar.comandos()
-		game.onCollideDo(bomberman, { personaje => personaje.teEncontro(bomberman)  } )
-		//Fondo
-		game.boardGround("fondo2.jpg")
+		configurar.colisiones()
 		//Puerta
 		puertaGanadora.construir(game.at(2,9))
 		//PowerUps
-			//powerUp.construir(game.at(3,9))
+		//powerUp.construir(game.at(3,9))
 		//Dura
 		constructorPared.construirParedDura(game.at(0,0),arriba,11)
 		constructorPared.construirParedDura(game.at(0,0),derecha,21)
@@ -219,7 +221,7 @@ object mapaFinal{
 }
 
 class BloqueDuro{
-	var position = game.at(3,2)
+	var property position = game.at(3,2)
 	const property image="pared-dura.png"
 	
 	method position(){

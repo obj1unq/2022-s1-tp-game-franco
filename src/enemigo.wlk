@@ -40,7 +40,7 @@ class EnemigoVertical inherits Enemigo{
 	var anteriorPosicion = game.at(1,0)
 	
 	override method image() {
-		return "enemigo.png" }
+		return "enemigo3.png" }
 	
 	override method moverse() {
 		if (position.y() == 11 or (position.y() > 0 and anteriorPosicion.y() > position.y())) {
@@ -56,7 +56,7 @@ class EnemigoVertical inherits Enemigo{
 class EnemigoRandom inherits Enemigo {
 	
 	override method image() {
-		return "enemigo.png" }
+		return "enemigo2.png" }
 	
 	override method moverse() {	
 		const listaDePosibles = [arriba.siguiente(self.position()),abajo.siguiente(self.position()),derecha.siguiente(self.position()),izquierda.siguiente(self.position())]
