@@ -3,7 +3,7 @@ import objetos.*
 import bomberman.*
 import enemigo.*
 import configuracion.*
-
+import sonidos.*
 
 class Nivel{
 	const property mapaDeNivel
@@ -218,7 +218,9 @@ object mapaFinal{
 	
 	method iniciar(){
 		game.addVisual(imagenFinal)
+		sonidos.finalJuego()
 		game.schedule(3000, {game.stop()})
+		
 	}
 }
 

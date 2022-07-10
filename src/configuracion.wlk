@@ -3,7 +3,7 @@ import wollok.game.*
 import bomberman.*
 import niveles.*
 import objetos.*
-
+import sonidos.*
 
 object configurar{
 	
@@ -12,7 +12,10 @@ object configurar{
 	const property pantallaFinal = new Nivel(mapaDeNivel = mapaFinal)
 	
 	method pasarPantalla() { 
+		
+		keyboard.enter().onPressDo({sonidos.iniciarJuegoSonido()})
 		keyboard.enter().onPressDo({pantalla1.iniciar()})
+
 	}
 	
 	method pasarAReglas(){

@@ -1,5 +1,6 @@
 import wollok.game.*
 import bomberman.*
+import sonidos.*
 
 
 class Bomba {
@@ -10,6 +11,7 @@ class Bomba {
 	
 	method explotar() {
 		game.removeVisual(self)
+		sonidos.explosionBomba()
 		self.crearFuegos()
 		self.explosionAparecer()
 		bomberman.comprobarPowerUps()
