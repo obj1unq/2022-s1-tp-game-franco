@@ -80,6 +80,12 @@ class EnemigoRandom inherits Enemigo {
 			return game.getObjectsIn(_direccion).contains(bomberman)
 		}
 }
+
+class EnemigoRandom2 inherits EnemigoRandom{
+	
+	override method image() {
+		return "enemigo3.png" }
+}
 	
 
 

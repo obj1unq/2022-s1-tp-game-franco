@@ -91,7 +91,7 @@ class Fuego {
 }
 object puertaGanadora{
 	var property position
-	const property image= "doors_open.png"//"puerta-ganadora.png" 
+	const property image= "doors_open.png"
 	const property contadorDeNiveles = []
 	
 	method teEncontro(alguien){
@@ -107,7 +107,7 @@ object puertaGanadora{
 object powerUp{
 	
 	const property image = "powerup-bomba.png"
-	var property position = game.at(3,9)
+	var property position 
 	
 	method teEncontro(personaje){
 		personaje.agregarPowerUp()
@@ -122,7 +122,8 @@ object powerUp{
 	method encontreFuego(){}
 	
 	method construir(_position){
-	game.addVisualIn(self,_position)
+		game.addVisualIn(self,_position)
+		position=_position
 	}
 	
 }
@@ -130,7 +131,7 @@ object powerUp{
 object vidaExtra{
 	
 	const property image = "life.png"
-	var property position = game.at(2,9)
+	var property position 
 	
 	method teEncontro(personaje){
 		personaje.agregarVida()
@@ -143,6 +144,11 @@ object vidaExtra{
 	method removerVisualDeBarra(){
 		game.removeVisual(self)
 	}
+	
+	method construir(_position){
+	
+		game.addVisualIn(self,_position)
+		position=_position
 	
 }
 	

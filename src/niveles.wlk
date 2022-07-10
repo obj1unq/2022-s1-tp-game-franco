@@ -45,15 +45,18 @@ object mapa1{
 		//BOMBERMAN
 		game.addVisual(bomberman)
 		//PUERTA
-		puertaGanadora.construir(game.at(3,10))
-	 	game.addVisual(powerUp)
+		puertaGanadora.construir(game.at(17,1))
+	 	//PowerUps
+	 	powerUp.construir(game.at(7,5))
 	 	game.addVisual(barraPowerUp)
-	 	game.addVisual(vidaExtra)
+	 	vidaExtra.construir(game.at(7,8))
 	 	game.addVisual(letrasPowerUp)
+	 	//CONFIG
 	 	configurar.comandos()
 	 	configurar.colisiones()
 		//Enemigos 
 		constructorEnemigos.construirEnemigos(6)
+		constructorEnemigos.construirEnemigos2(3)
 		
 		//DuraContorno
 		constructorPared.construirParedDura(game.at(0,0),arriba,11)
@@ -108,7 +111,7 @@ object mapa1{
 
 object mapa2{
 	
-		var property image = "final.jpeg"
+	//	var property image = "final.jpeg"
 	
 		method siguienteNivel(){
 		game.clear()
@@ -119,15 +122,15 @@ object mapa2{
 	
 		//BOMBERMAN
 		game.addVisual(bomberman)
-		game.addVisual(powerUp)
 		game.addVisual(barraPowerUp)
 		game.addVisual(letrasPowerUp)
 		configurar.comandos()
 		configurar.colisiones()
 		//Puerta
-		puertaGanadora.construir(game.at(2,9))
+		puertaGanadora.construir(game.at(13,9))
 		//PowerUps
-		//powerUp.construir(game.at(3,9))
+		powerUp.construir(game.at(9,5))
+		vidaExtra.construir(game.at(11,1))
 		//Dura
 		constructorPared.construirParedDura(game.at(0,0),arriba,11)
 		constructorPared.construirParedDura(game.at(0,0),derecha,21)
@@ -200,6 +203,7 @@ object mapa2{
 		constructorPared.construirParedBlanda(game.at(19,2),arriba,1)
 		//Enemigos
 		constructorEnemigos.construirEnemigos(6)
+		constructorEnemigos.construirEnemigos2(2)
 	}
 }
 
@@ -219,7 +223,7 @@ object mapaFinal{
 	method iniciar(){
 		game.addVisual(imagenFinal)
 		sonidos.finalJuego()
-		game.schedule(3000, {game.stop()})
+		game.schedule(4000, {game.stop()})
 		
 	}
 }
@@ -295,15 +299,24 @@ object constructorPared{
 	}
 }
 object constructorEnemigos{
-	
+
 	method construirEnemigos(cantidad){
 		if( cantidad > 0){
 		const enemigo = new EnemigoRandom(position=randomizer.emptyPosition())	
 		game.addVisual(enemigo)
 		game.onTick(1000, "movimiento", {enemigo.moverse()})
 		self.construirEnemigos(cantidad-1)
+		}
 	}
-}
+	
+		method construirEnemigos2(cantidad){
+		if( cantidad > 0){
+		const enemigo = new EnemigoRandom2(position=randomizer.emptyPosition())	
+		game.addVisual(enemigo)
+		game.onTick(1000, "movimiento", {enemigo.moverse()})
+		self.construirEnemigos(cantidad-1)
+		}
+	}
 }
 
 object randomizer {
