@@ -27,6 +27,7 @@ object pantallaInicial{
 		game.height(13)
 		game.width(21)
 		game.addVisual(self)
+		game.boardGround("fondo2.jpg")
 		configurar.pasarPantalla()
 		}
 }
