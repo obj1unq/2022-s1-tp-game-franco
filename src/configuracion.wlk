@@ -13,7 +13,10 @@ object configurar{
 	
 	method pasarPantalla() { 
 		keyboard.enter().onPressDo({pantalla1.iniciar()})
-		
+	}
+	
+	method pasarAReglas(){
+		keyboard.r().onPressDo({mapaReglas.iniciar()})
 	}
 	
 	method comandos() {

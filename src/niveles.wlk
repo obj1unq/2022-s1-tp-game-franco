@@ -29,6 +29,7 @@ object pantallaInicial{
 		game.addVisual(self)
 		game.boardGround("ground.png")
 		configurar.pasarPantalla()
+		configurar.pasarAReglas()
 		}
 }
 
@@ -219,6 +220,23 @@ object mapaFinal{
 		game.schedule(3000, {game.stop()})
 	}
 }
+
+object mapaReglas{
+	
+	method iniciar(){
+	game.addVisual(pantallaReglas)
+	configurar.pasarPantalla()	
+}
+}
+
+object pantallaReglas{
+	var property image = "pantallaReglas.jpeg"
+	const property position= game.at(0,0)
+	
+	
+}
+
+
 
 class BloqueDuro{
 	var property position = game.at(3,2)
