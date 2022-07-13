@@ -55,7 +55,7 @@ object mapa1{
 	 	configurar.comandos()
 	 	configurar.colisiones()
 		//Enemigos 
-		constructorEnemigos.construirEnemigos(6)
+		//constructorEnemigos.construirEnemigos(6)
 		constructorEnemigos.construirEnemigos2(3)
 		
 		//DuraContorno
@@ -202,7 +202,7 @@ object mapa2{
 		constructorPared.construirParedBlanda(game.at(18,7),abajo,1)
 		constructorPared.construirParedBlanda(game.at(19,2),arriba,1)
 		//Enemigos
-		constructorEnemigos.construirEnemigos(6)
+		constructorEnemigos.construirEnemigos(3)
 		constructorEnemigos.construirEnemigos2(2)
 	}
 }
