@@ -8,7 +8,7 @@
 
 ## Capturas
 (agregar)
-
+[reglas] (pantallasReglas.png)
 ## Reglas de Juego / Instrucciones
 
 El principal objetivo de este juego es pasar niveles usando bombas, que explotan unos segundos después de ser puestas, para destruir obstáculos y enemigos. Para poder pasar al siguiente nivel se debe buscar la puerta secreta entre los muros blandos e ingresar.
