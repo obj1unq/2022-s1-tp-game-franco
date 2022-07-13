@@ -15,6 +15,8 @@ El principal objetivo de este juego es pasar niveles usando bombas, que explotan
 
 Si nuestro heroe colisiona contra un enemigo o la explosion de una bomba pierde
 
+![Reglas](pantallaReglas.png)
+
 ## Power Ups:
 
 -Permiten aumentar el nivel de nuestra bomba
