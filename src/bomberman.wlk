@@ -17,7 +17,6 @@ object bomberman {
 
 	method perder() {
 		self.terminar("Perdí!")
-		//game.removeVisual(self)
 	}
 
 	method encontreFuego() {
@@ -92,7 +91,7 @@ object bomberman {
 	}
 
 	method removerVidaExtra() {
-		vidas.remove("VidaExtra")
+		vidas.remove(vidaExtra)
 		vidaExtra.removerVisualDeBarra()
 	}
 
@@ -101,11 +100,11 @@ object bomberman {
 	}
 
 	method agregarPowerUp() {
-		powerups.add("SuperBomba")
+		powerups.add(powerUp)
 	}
 
 	method agregarVida() {
-		vidas.add("VidaExtra")
+		vidas.add(vidaExtra)
 	}
 
 	method powerUps() {
@@ -120,7 +119,7 @@ object bomberman {
 	}
 
 	method removerSuperBomba() {
-		powerups.remove("SuperBomba")
+		powerups.remove(powerUp)
 		powerUp.removerVisualDeBarra()
 	}
 
