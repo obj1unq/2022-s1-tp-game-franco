@@ -1,8 +1,16 @@
 import wollok.game.*
-import pepita.*
+import bomberman.*
+import objetos.*
+import enemigo.*
+import niveles.*
+import configuracion.*
+import sonidos.*
 
-program juego {
-	game.title("Juego Base")
-	game.addVisual(pepita)
+program bomberman {
+	//  CONFIG	
+
+	pantallaInicial.iniciar()
+ 	
+ 	//  COMIENZA
 	game.start()
-}
+	}

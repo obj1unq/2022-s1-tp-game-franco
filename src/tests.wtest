@@ -1,6 +1,95 @@
+import wollok.game.*
+import objetos.*
+import niveles.*
+import bomberman.*
+import configuracion.*
+import enemigo.*
+import sonidos.*
 
-test "testX" {
 
-	assert.that(true)
-
+describe "TESTS DEL JUEGO" {
+	
+	method initialize() {
+		const  nivelPrueba = new Nivel(mapaDeNivel=mapa1)
+		sonidos.desactivar()
+		
+		nivelPrueba.iniciar()
+		
+	}
+	
+	
+	test "elementos del juego estan en el mapa" {
+		const fuegoDePrueba = new Fuego()
+		const bombaPrueba = new Bomba()
+		
+		bomberman.poner(bombaPrueba)
+		
+		
+		assert.equals(bomberman.position(), game.at(1,10))
+		assert.equals(fuegoDePrueba.position(),game.at(5,5))
+		assert.that(game.hasVisual(bombaPrueba))
+		assert.equals(puertaGanadora.position(), game.at(17,1))
+		assert.that(game.hasVisual(vidaExtra))
+	}
+	
+	test "bomba mata enemigo" {
+		const enemigoPrueba = new EnemigoRandom(position=game.at(2,10))
+		game.addVisual(enemigoPrueba)
+		const bombaPrueba = new Bomba()
+		game.addVisual(bombaPrueba)
+		
+		//assert.that(game.hasVisual(enemigoPrueba)) //hay enemigo creado en el juego
+		
+		
+		bombaPrueba.explotar()
+		
+		assert.notThat(game.hasVisual(enemigoPrueba))
+		
+		
+		
+	}
+	
+	test "bomberman no puede atravesar ladrillo blando"{
+		constructorPared.construirParedBlanda(game.at(2,10),arriba,1)
+		bomberman.mover(derecha)
+		assert.notThat(bomberman.puedoPasar(derecha)) //bomberman no puede atravesar ladrillo blando
+	}
+	
+	test "bomba destruye ladrillo blando "{
+		const paredBlanda = new BloqueBlando(position = game.at(3,9))
+		game.addVisual(paredBlanda)
+		const bombaPrueba = new Bomba(position = game.at(2,9))
+		game.addVisual(bombaPrueba)
+		assert.that(game.hasVisual(paredBlanda))
+		
+		bombaPrueba.explotar()
+		
+		assert.notThat(game.hasVisual(paredBlanda ))
+	}
+	
+		test "bomberman tiene powerUp"{
+		
+		
+		bomberman.agregarPowerUp()
+		
+		assert.equals(bomberman.powerups(),["SuperBomba"])
+	}
+	
+	test "enemigo mata a bomberman" {
+		const enemigoPrueba= new EnemigoRandom(position=game.at(2,10))
+		game.addVisual(enemigoPrueba)
+		
+		enemigoPrueba.teEncontro(bomberman)
+		
+		assert.notThat(game.hasVisual(bomberman))
+	}
+	
+	test "bomberman encuentra puerta ganadora y pasa de nivel" {
+		const  nivelPrueba2 = new Nivel(mapaDeNivel=mapa1)
+		bomberman.ganar()
+		
+		assert.equals(mapa2, nivelPrueba2.mapaDeNivel())
+		
+		
+	}
 }

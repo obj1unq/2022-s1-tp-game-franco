@@ -1,22 +1,29 @@
-# Nombre del juego (<- borrar y completar)
+# Bomberman
 
 ## Equipo de desarrollo
 
-- Alguien
-- Persona
-- etc.
+- Franco Vega
+- Alejo Villaizan
+- Lucas Sordini
 
 ## Capturas
 
-(agregar)
-
+![Menu](pantallaInicial.jpeg)
 ## Reglas de Juego / Instrucciones
 
-(Escribirlas)
+El principal objetivo de este juego es pasar niveles usando bombas, que explotan unos segundos después de ser puestas, para destruir obstáculos y enemigos. Para poder pasar al siguiente nivel se debe buscar la puerta secreta entre los muros blandos e ingresar.
+
+Si nuestro heroe colisiona contra un enemigo o la explosion de una bomba pierde
+
+![Reglas](pantallaReglas.png)
+
+## Power Ups:
+
+-Permiten aumentar el nivel de nuestra bomba
 
 
 ## Otros
-
-- Curso/Facultad
-- Versión de wollok
-- Una vez terminado, no tenemos problemas en que el repositorio sea público / queremos manternerlo privado
+ 
+- Programacion con Objetos 1/ UNQ
+- Version 3.0.0 Wollok
+- Una vez terminado, no tenemos problemas en que el repositorio sea público 
