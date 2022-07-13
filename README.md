@@ -7,7 +7,6 @@
 - Lucas Sordini
 
 ## Capturas
-(pantallaReglas.png)
 (agregar)
 
 ## Reglas de Juego / Instrucciones
