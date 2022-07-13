@@ -231,13 +231,14 @@ object mapaFinal{
 object mapaReglas{
 	
 	method iniciar(){
+	game.removeVisual(pantallaInicial)
 	game.addVisual(pantallaReglas)
 	configurar.pasarPantalla()	
 }
 }
 
 object pantallaReglas{
-	var property image = "pantallaReglas.jpeg"
+	var property image = "pantallaReglas.png"
 	const property position= game.at(0,0)
 	
 	
@@ -255,6 +256,7 @@ class BloqueDuro{
 	method construir(){
 		game.addVisual(self)
 	}
+	
 	method encontreFuego(){}
 	method teEncontro(alguien){}
 	
