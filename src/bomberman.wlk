@@ -16,6 +16,7 @@ object bomberman {
 	
 	method perder() {
 		self.terminar("Perdí!")
+		game.removeVisual(self)
 		}
 		
 	method encontreFuego(){

@@ -150,9 +150,9 @@ object vidaExtra{
 		game.addVisualIn(self,_position)
 		position=_position
 	
-}
+	}
 	
-
+}
 
 
 
